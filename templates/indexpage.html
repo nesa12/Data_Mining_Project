@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/styles/indexStyles.css">
+        <!-- <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/indexStyles.css') }}"> -->
+    </head>
+    <body>
+        <div class="container">
+            {% extends "header.html" %}
+            {% block content %}
+            <header class="header">
+              <h1 id="title" class="text-center">Airline Satisfaction Predictor</h1>
+
+            </header>
+            <div class={{sat}}>
+                <div class="box">
+                    <div class="form-group">
+                        <p>Customer satisfaction: </p>
+                        <label class="pred">
+                            {{text}}
+                        </label>
+                        </div>
+                </div>
+              </div>
+            <form id="survey-form" action='/prediction', method="post" class={{form}}>
+
+              <!-- travel type -->
+              <div class="form-group">
+                <p>Type of travel</p>
+                <label>
+                  <input
+                    name="traveltype"
+                    value="Personal Travel"
+                    type="radio"
+                    class="input-radio"
+                    checked
+                  />Personal Travel</label
+                >
+                <label>
+                  <input
+                    name="traveltype"
+                    value="Business Travel"
+                    type="radio"
+                    class="input-radio"
+                  />Business Travel</label
+                >         
+                
+             </div>
+
+             <!-- Inflight Wifi Service -->
+             <div class="form-group">
+                <p>Inflight Wifi Service</p>
+                <select id="wifi" name="wifi" class="form-control" required>
+                  <option disabled selected value>Select rating</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+          
+              <!-- Online Boarding -->
+              <div class="form-group">
+                <p>Online Boarding</p>
+                <select id="onlineBoarding" name="onlineBoarding" class="form-control" required>
+                  <option disabled selected value>Select rating</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+
+              <!-- Seat Comfort -->
+              <div class="form-group">
+                <p>Seat Comfort</p>
+                <select id="seatComfort" name="seatComfort" class="form-control" required>
+                  <option disabled selected value>Select rating</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+
+              <!-- Checkin Service -->
+              <div class="form-group">
+                <p>Checkin Service</p>
+                <select id="checkin" name="checkin" class="form-control" required>
+                  <option disabled selected value>Select rating</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              
+
+              <div class="form-group">
+                <button type="submit" id="submit" class="submit-button">
+                  Submit
+                </button>
+              </div>
+
+              
+            </form>
+
+            
+            </div>
+          
+        {% endblock %}
+
+    </body>
+</html>
